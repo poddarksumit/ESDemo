@@ -1,0 +1,118 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\development\\es-demo\\ESDemo\\ESDemo.csproj": {}
+  },
+  "projects": {
+    "C:\\development\\es-demo\\ESDemo\\ESDemo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\development\\es-demo\\ESDemo\\ESDemo.csproj",
+        "projectName": "ESDemo",
+        "projectPath": "C:\\development\\es-demo\\ESDemo\\ESDemo.csproj",
+        "packagesPath": "C:\\Users\\SumitPoddar\\.nuget\\packages\\",
+        "outputPath": "C:\\development\\es-demo\\ESDemo\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\SumitPoddar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://brandlink.myget.org/F/brandlink-geolocation-response-nightlies/auth/de26c53e-0aeb-4725-b6ca-0a78d540157e/api/v3/index.json": {},
+          "https://brandlink.myget.org/F/packages/auth/3f6778f6-c9f0-47da-8b85-f0106386fdf1/api/v3/index.json": {},
+          "https://nuget.hangfire.io/nuget/hangfire-pro": {},
+          "https://nuget.syncfusion.com/nuget_aspnetmvc-js2/nuget/getsyncfusionpackages/aspnetmvc-js2": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "BrandLink.Extensions.Data.AspNetCore": {
+              "target": "Package",
+              "version": "[1.0.0-dev000001, )"
+            },
+            "BrandLink.Extensions.ResilientHttpClientFactory": {
+              "target": "Package",
+              "version": "[1.0.0-dev000005, )"
+            },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            },
+            "FastMember": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "NEST": {
+              "target": "Package",
+              "version": "[7.2.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

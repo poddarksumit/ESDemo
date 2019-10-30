@@ -1,0 +1,741 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BrandLink.Extensions.ElasticSearch</name>
+    </assembly>
+    <members>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Analyzsers.AnalyzerTokenizers">
+            <summary>
+            Tokenizers for Analyzers
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Analyzsers.AnalyzerTokenizers.UaxUrlEmail">
+            <summary>
+            Url or Email tokenizer <see href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-uaxurlemail-tokenizer.html"/>
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Analyzsers.AnalyzerTokenizers.Standard">
+            <summary>
+            Standard tokenizer <see href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-tokenizer.html"/>
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Analyzsers.AnalyzerTokenizers.Letter">
+            <summary>
+            Letter tokenizer <see href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-letter-tokenizer.html"/>
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Analyzsers.AnalyzerTokenizers.Lowercase">
+            <summary>
+            Lowercase tokenizer <see href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lowercase-tokenizer.html"/>
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Analyzsers.AnalyzerTokenizers.Whitespace">
+            <summary>
+            Whitespace tokenizer <see href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-whitespace-tokenizer.html"/>
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Analyzsers.AnalyzerTokenizers.Classic">
+            <summary>
+            Classic tokenizer <see href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-classic-tokenizer.html"/>
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Analyzsers.AnalyzerTokenizers.Keyword">
+            <summary>
+            Keyword tokenizer <see href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-keyword-tokenizer.html"/>
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Analyzsers.AnalyzerTokenizers.Pattern">
+            <summary>
+            Pattern tokenizer <see href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pattern-tokenizer.html"/>
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Analyzsers.Interface.IAnalyzers">
+            <summary>
+            Analyzer interface to add custom analysers.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Analyzsers.Interface.IAnalyzers.AnalyzerName">
+            <summary>
+            Name of the custom analyzer.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Analyzsers.Interface.IAnalyzers.CustomAnalyzer">
+            <summary>
+            Type of custom analyzer.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Config.ConfigBase">
+            <summary>
+            This provides the config for ElasticSearch connection details.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Config.ConfigBase.ConnectionUrl">
+            <summary>
+            Gets and Sets the value of <b>ElasticSearch</b> endpoint.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Config.ConfigBase.DefaultIndexName">
+            <summary>
+            Gets and Sets the value of <b>ElasticSearch</b> default index.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Config.ConfigBase.RefreshIndexOnStartup">
+            <summary>
+            Gets and Sets the value for whether to RefreshIndex on StartUp.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Config.ConfigBase.DefaultPageSize">
+            <summary>
+            Gets and Sets the value for whether to RefreshIndex on StartUp.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Exception.AlreadyIniliazedException">
+            <summary>
+            Throws  <see cref="N:BrandLink.Extensions.ElasticSearch.Exception"/> when tried to initialized an already initialized ES Client.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Exception.AlreadyIniliazedException.#ctor">
+            <summary>
+            Constructor for the ESClient Excpetion.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Extensions.AggregationContainerDescriptorExtensions">
+            <summary>
+            Extension of <see cref="!:AggregationContainerDescriptor"/> to add Aggregations from Field.
+            </summary>    
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Extensions.AggregationContainerDescriptorExtensions.Terms``1(Nest.AggregationContainerDescriptor{``0},System.Linq.Expressions.Expression{System.Func{``0,System.String}})">
+            <summary>
+            Term method to add the TermAggregator from Field.
+            </summary>
+            <typeparam name="T">Name of the Entity</typeparam>
+            <param name="aggregationContainerDescriptor">This aggregation descriptor</param>
+            <param name="field">Field to add in aggregation</param>
+            <returns>Aggregation desciptor post adding the request aggregation.</returns>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Extensions.AggregationContainerDescriptorExtensions.GetFieldMapping``1(Nest.AggregationContainerDescriptor{``0})">
+            <summary>
+            Returns the aggregation field-name mapping.
+            </summary>
+            <typeparam name="T">Type of the SearchSet</typeparam>
+            <param name="aggregationContainerDescriptor">Current container descriptor</param>
+            <returns>FieldMapping</returns>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Extensions.MemberExpressionExtension.GetFieldName(System.Linq.Expressions.MemberExpression)">
+            <summary>
+            
+            </summary>
+            <param name="memberExpression"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Extensions.TypeExtensions">
+            <summary>
+            Extension methods for the <see cref="T:System.Type"/> class.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Extensions.TypeExtensions.IsSubClassOfGeneric(System.Type,System.Type)">
+            <summary>
+            Alternative version of <see cref="M:System.Type.IsSubclassOf(System.Type)"/> that supports raw generic types
+            (generic types without any type parameters).
+            </summary>
+            <param name="toCheck">To type to determine for whether it derives from <paramref name="baseType"/>.</param>
+            <param name="baseType">The base type class for which the check is made.</param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Configuration.Interface.ITypeBuilder">
+            <summary>
+            Interface for Search builder
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Configuration.Interface.ITypeBuilder.CreateIndex(Nest.IElasticClient)">
+            <summary>
+            Method to create index.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Configuration.SearchBuilder">
+            <summary>
+            Builder for SearchSets
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Configuration.SearchBuilder.SearchClient">
+            <summary>
+            Client for ElasticSearch, build using NEST in class <see cref="T:Microsoft.Extensions.DependencyInjection.DependencyInjectionExtensions"/>.
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Operations.Configuration.SearchBuilder.Builders">
+            <summary>
+            List of TypeBuilder
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Configuration.SearchBuilder.#ctor(Nest.IElasticClient)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="searchClient">Search Context</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Configuration.SearchBuilder.Entity``1">
+            <summary>
+            Method to get Entity for the Search builder.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Configuration.TypeBuilder`1">
+            <summary>
+            Builder for the indexes.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Configuration.TypeBuilder`1.Instance">
+            <summary>
+            Returns Instance, singleton pattern.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Configuration.TypeBuilder`1.Descriptor">
+            <summary>
+            Descriptor for mapping while creating index.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Core.CoreOperations">
+            <summary>
+            Handler class to have all the ElasticSearch core operations
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Core.CoreOperations.SearchClient">
+            <summary>
+            Client for ElasticSearch, build using NEST in class <see cref="T:Microsoft.Extensions.DependencyInjection.DependencyInjectionExtensions"/>.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.CoreOperations.#ctor(Nest.IElasticClient)">
+            <summary>
+            Constructor for the EsOperation.
+            </summary>
+            <param name="esClient">EsClient added through the DI.</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.CoreOperations.CreateIndex``1">
+            <summary>
+            API method to create Index. It will throw an error if the Index with same name exists.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.CoreOperations.CreateIndex(System.String)">
+            <summary>
+            API method to create Index.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.CoreOperations.DeleteIndex(System.String)">
+            <summary>
+            API method to delete Index. No error is thrown if the index is not found.
+            <b>Caution</b>: Data associated under this index will be deleted as well.
+            </summary>
+            <param name="indexName">Name of the index</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.CoreOperations.ReCreateIndex(System.String)">
+            <summary>
+            API method to delete Index. No error is thrown if the index is not found.
+            <b>Caution</b>: Data associated under this index will be deleted as well.
+            </summary>
+            <param name="indexName">Name of the index</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.CoreOperations.AddMapping(System.String,System.Action)">
+            <summary>
+            API method to add mappings to the index. It will throw an error if the Index with same name exists.
+            </summary>
+            <param name="indexName">Name of the index</param>
+            <param name="mappingDetail"></param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.CoreOperations.UpdateMapping(System.String,System.Action)">
+            <summary>
+            API method to create Index. It will throw an error if the Index with same name exists.
+            </summary>
+            <param name="indexName">Name of the index</param>
+            <param name="mappingDetail"></param>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations">
+            <summary>
+            Interface to have all the ElasticSearch core operations like index, mapping and settings creation/updating
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations.GetIndexSettings(System.String)">
+            <summary>
+            API method to get index settings.
+            </summary>
+            <param name="indexName">Name of the index</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations.GetIndexMapping(System.String)">
+            <summary>
+            API method to get index settings.
+            </summary>
+            <param name="indexName">Name of the index</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations.CreateIndex``1">
+            <summary>
+            API method to create Index.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations.CreateIndex(System.String)">
+            <summary>
+            API method to create Index.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations.CreateIndex(System.String,System.Collections.Generic.List{BrandLink.Extensions.ElasticSearch.Analyzsers.Interface.IAnalyzers})">
+            <summary>
+            API method to create Index along with the custome analyzer in the settings.
+            </summary>
+            <param name="indexName">Name of the index</param>
+            <param name="customAnalyzers">List of custom analysers from Extensions/build on the fly to be added to the settings of the index.</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations.DeleteIndex(System.String)">
+            <summary>
+            API method to delete Index. No error is thrown if the index is not found.
+            <b>Caution</b>: Data associated under this index will be deleted as well.
+            </summary>
+            <param name="indexName">Name of the index</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations.ReCreateIndex(System.String)">
+            <summary>
+            API method to recreate an index.
+            <b>Caution</b>: Data associated under this index will be deleted as well.
+            </summary>
+            <param name="indexName">Name of the index</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations.ReCreateIndex(System.String,System.Collections.Generic.List{BrandLink.Extensions.ElasticSearch.Analyzsers.Interface.IAnalyzers})">
+            <summary>
+            API method to recreate an index along with the custome analyzer in the settings.
+            <b>Caution</b>: Data associated under this index will be deleted as well.
+            </summary>
+            <param name="indexName">Name of the index</param>
+            <param name="customerAnalyzers">List of custom analysers from Extensions/build on the fly to be added to the settings of the index.</param>        
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations.AddMapping(System.String,System.Action)">
+            <summary>
+            API method to add mappings to the index.
+            </summary>
+            <param name="indexName">Name of the index</param>
+            <param name="mappingDetail"></param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations.UpdateMapping(System.String,System.Action)">
+            <summary>
+            API method to update mappings to the index.
+            </summary>
+            <param name="indexName">Name of the index</param>
+            <param name="mappingDetail"></param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations.RefereshIndex``1(System.Func{Nest.TypeMappingDescriptor{``0}})">
+            <summary>
+            API method to referesh index.
+            </summary>
+            <param name="mappingDetail"></param>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Data.DataOperations">
+            <summary>
+            Module to handle all the ElasticSearch data operations like data upload, delete.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Data.DataOperations.SearchClient">
+            <summary>
+            Client for ElasticSearch, build using NEST in class <see cref="T:Microsoft.Extensions.DependencyInjection.DependencyInjectionExtensions"/>.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Data.DataOperations.#ctor(Nest.IElasticClient)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="esClient"></param>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Data.Interface.IDataOperations">
+            <summary>
+            Interface class to have all the ElasticSearch data operations like data upload, delete.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Interface.IOperations">
+            <summary>
+            Basic interface for ElasticSearch
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Interface.IOperations.SearchClient">
+            <summary>
+            The ES client/connection. This is supposed to be just one instance.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.ISearchContextBase">
+            <summary>
+            Main interface for all ES operations module.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.ISearchContextBase.SearchClient">
+            <summary>
+            The ES client/connection. This is supposed to be just one instance.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.ISearchContextBase.ConfigureSearch">
+            <summary>
+            Method to configure the search, init search set, add required params.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Model.Aggregation">
+            <summary>
+            Model for ES Aggregations.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.Aggregation.AggregationName">
+            <summary>
+            Aggregation name
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.Aggregation.AggregationField">
+            <summary>
+            Aggregation field for Filter search.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.Aggregation.Count">
+            <summary>
+            Count of document in this aggragations
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.Aggregation.Filters">
+            <summary>
+            Filters available for this field on aggregation.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Model.FilterData">
+            <summary>
+            Filter data for aggregations
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.FilterData.FieldValue">
+            <summary>
+            Value of the Filter
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.FilterData.Count">
+            <summary>
+            This filter count
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Model.Request.Filter">
+            <summary>
+            Body to hold Filters attributes.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.Request.Filter.FieldName">
+            <summary>
+            Value of field to search for.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.Request.Filter.FieldValue">
+            <summary>
+            Value of the field to filter on.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Model.Request.SearchParams">
+            <summary>
+            Rrequest params for search
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.Request.SearchParams.PageSize">
+            <summary>
+            Page size, default will be 10.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.Request.SearchParams.PageIndex">
+            <summary>
+            Page index, default will be 0.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.Request.SearchParams.SearchTerm">
+            <summary>
+            Search term to be searched.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.Request.SearchParams.Filters">
+            <summary>
+            Filters if any.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Model.SearchResult`1">
+            <summary>
+            Elastic search model to return the search result.
+            </summary>
+            <typeparam name="TEntity">Entity name to wrap the response into.</typeparam>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.SearchResult`1.Total">
+            <summary>
+            Total count of the data set.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.SearchResult`1.Page">
+            <summary>
+            Page index requested.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.SearchResult`1.PageSize">
+            <summary>
+            Page size requested.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.SearchResult`1.Results">
+            <summary>
+            Result of the ES.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.SearchResult`1.Aggregations">
+            <summary>
+            Lists of aggregations
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Model.SearchResult`1.ElapsedMilliseconds">
+            <summary>
+            Time taken by the Es to fetch the result.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Search.Interface.ISearchOperations">
+            <summary>
+            Interface for all the searching operations of ElasticSearch
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Search.Interface.ISearchOperations.Search``1(BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet{``0},BrandLink.Extensions.ElasticSearch.Operations.Model.Request.SearchParams)">
+            <summary>
+            Query ES with the Search Term
+            </summary>
+            <typeparam name="TEntity">Entity for the search.</typeparam>
+            <param name="searchSet">The current SearchSet for querying the item.</param>
+            <param name="searchParams">All search params like:
+            searchTerm
+            pageIndex
+            pageSize
+            Filter
+            </param>
+            <returns>ES result wrapped in TEntity type.</returns>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Search.Interface.ISearchOperations.Search``1(BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet{``0},System.Func{Nest.SearchDescriptor{``0}})">
+            <summary>
+            Query ES with the entire searchQueryDescriptor.
+            </summary>
+            <param name="searchSet">The current SearchSet for querying the item.</param>
+            <param name="searchQueryDescriptor">Search Query to to query with.</param>
+            <returns>ES result</returns>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Search.SearchOperations">
+            <summary>
+            All operations for search.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Search.SearchOperations.SearchClient">
+            <summary>
+            Client for ElasticSearch, build using NEST in class <see cref="T:Microsoft.Extensions.DependencyInjection.DependencyInjectionExtensions"/>.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Search.SearchOperations.#ctor(Nest.IElasticClient)">
+            <summary>
+            Constructor for the EsOperation.
+            </summary>
+            <param name="searchClient">EsClient added through the DI.</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Search.SearchOperations.Search``1(BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet{``0},BrandLink.Extensions.ElasticSearch.Operations.Model.Request.SearchParams)">
+            <summary>
+            Query ES with the Search Term
+            </summary>
+            <typeparam name="TEntity">Entity for the search.</typeparam>
+            <param name="searchSet">The current SearchSet for querying the item.</param>
+            <param name="searchParams">All search params like:
+            searchTerm
+            pageIndex
+            pageSize
+            Filter
+            </param>
+            <returns>ES result wrapped in TEntity type.</returns>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Search.SearchOperations.Search``1(BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet{``0},System.Func{Nest.SearchDescriptor{``0}})">
+            <summary>
+            Query ES with the custom client's search descriptor
+            </summary>
+            <typeparam name="TEntity">Entity for the search.</typeparam>
+            <param name="searchSet">The current SearchSet for querying the item.</param>
+            <param name="searchQueryDescriptor">Custom client's search descriptor
+            </param>
+            <returns>ES result wrapped in TEntity type.</returns>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Set.Interface.ISearchSetBase">
+            <summary>
+            Interface for the SearchSet.
+            </summary>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1">
+            <summary>
+            Search set for ES.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.SearchClient">
+            <summary>
+            Initiated in case there is a requirement to add new functionality at client side.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.Config">
+            <summary>
+            Configs for the ElasticSearch
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.SearchFields">
+            <summary>
+            Fields to be used for searching, in the order added.
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.AggregationFields">
+            <summary>
+            Fields to be used for aggregations, in the order added.
+            </summary>
+        </member>
+        <member name="F:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.AggregationFielNameMapping">
+            <summary>
+            Dictionary of aggregation name and field name. Pre-computed on startup for Filter search.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.IndexName">
+            <summary>
+            Index name of the Set, for quick reference.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.SearchOperations">
+            <summary>
+            Instance of SearchOperations.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.#ctor(Nest.IElasticClient,BrandLink.Extensions.ElasticSearch.Config.ConfigBase,BrandLink.Extensions.ElasticSearch.Operations.Search.Interface.ISearchOperations)">
+            <summary>
+            Constructor for SearchSet
+            </summary>
+            <param name="client">ElasticClient initiated in StartUp <see cref="T:Microsoft.Extensions.DependencyInjection.DependencyInjectionExtensions"/>.</param>
+            <param name="option">Config for ElasticSearch.</param>
+            <param name="searchOperations">SearchOperation initiated in StartUp <see cref="P:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.SearchOperations"/>. </param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.Add(`0)">
+            <summary>
+            Add individual entity object into Search.
+            </summary>
+            <param name="entity">Entitiy to be added and indexed in ES.</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.AddAll(System.Collections.Generic.List{`0})">
+            <summary>
+            Add lists of entity objects into Search.
+            </summary>
+            <param name="entities">Entitiies to be added and indexed in ES</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.Update(`0)">
+            <summary>
+            Update individual entity object into Search.
+            </summary>
+            <param name="entity">Entitiy to be updated and re-indexed in ES.</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.UpdateAll(System.Collections.Generic.List{`0})">
+            <summary>
+            Update lists of entity objects into Search.
+            </summary>
+            <param name="entities">Entitiies to be updated and re-indexed in ES</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.Query(BrandLink.Extensions.ElasticSearch.Operations.Model.Request.SearchParams)">
+            <summary>
+            Query ES with the Search Term
+            </summary>
+            <param name="searchParams">All search params like:
+            searchTerm
+            pageIndex
+            pageSize
+            Filter
+            </param>
+            <returns>ES result</returns>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Operations.Set.SearchSet`1.Query(System.Func{Nest.SearchDescriptor{`0}})">
+            <summary>
+            Query ES with the entire searchQueryDescriptor.
+            </summary>
+            <param name="searchQueryDescriptor">Search Query to to query with.</param>
+            <returns>ES result</returns>
+        </member>
+        <member name="T:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1">
+            <summary>
+            Core class for all the ElasticSearch operations
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1.SearchClient">
+            <summary>
+            Client for ElasticSearch, build using NEST in class <see cref="T:Microsoft.Extensions.DependencyInjection.DependencyInjectionExtensions"/>.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1.Option">
+            <summary>
+            Configs for the ElasticSearch
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1.EsCoreOperationsClient">
+            <summary>
+            Handler for all core operations like Index, Mapping and Serttings.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1.SearchOperationsClient">
+            <summary>
+            Handler for all search operations like search, filter, pagination, and aggregations.
+            </summary>
+        </member>
+        <member name="P:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1.SearchBuilder">
+            <summary>
+            Instance of Serch Builder from the client.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1.#ctor(Nest.IElasticClient,BrandLink.Extensions.ElasticSearch.Operations.Core.Interface.ICoreOperations,BrandLink.Extensions.ElasticSearch.Operations.Search.Interface.ISearchOperations,Microsoft.Extensions.Options.IOptions{`0},BrandLink.Extensions.ElasticSearch.Operations.Configuration.SearchBuilder)">
+            <summary>
+            Constructor for the EsOperation.
+            </summary>
+            <param name="esClient">EsClient added through the DI.</param>
+            <param name="esCoreOperations"></param>
+            <param name="searchOperations"></param>
+            <param name="option">Search configurations</param>
+            <param name="searchBuilder">Search builder for all Search configurations.</param>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1.ConfigureSearch">
+            <summary>
+            Method to configure the search, init search set, add required params.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1.ConfigureSearchBuilder">
+            <summary>
+            Configure each SearchSet with EntityDescriptor and other properties.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1.AddFieldSearchDescriptor">
+            <summary>
+            Prepare SearchFields for each declared SearchSet.
+            </summary>
+        </member>
+        <member name="M:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1.AddAggregationFieldsDescriptor">
+            <summary>
+            Prepare AggregationFields for each declared SearchSet.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.DependencyInjectionExtensions">
+            <summary>
+            Provides extensions methods for configuring ElasticSearch service collections.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.DependencyInjectionExtensions.AddElasticSearchService``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)">
+            <summary>
+            Register ElasticSearch services.
+            </summary>
+            <typeparam name="TContext">The type of search context. These must inherit from <see cref="T:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1"/>.</typeparam>
+            <typeparam name="TOptions">The type of client options. These must inherit from <see cref="T:BrandLink.Extensions.ElasticSearch.Config.ConfigBase"/>.</typeparam>
+            <param name="services">The service descriptors.</param>
+            <param name="configOptionKey">The key to fetch add the configuration options.</param>
+            <returns>Serivce collection post adding all the ES classes.</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.DependencyInjectionExtensions.AddElasticSearchService``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,``1)">
+            <summary>
+            Register ElasticSearch services.
+            </summary>
+            <typeparam name="TContext">The type of search context. These must inherit from <see cref="T:BrandLink.Extensions.ElasticSearch.Core.SearchContextBase`1"/>.</typeparam>
+            <typeparam name="TOptions">The type of client options. These must inherit from <see cref="T:BrandLink.Extensions.ElasticSearch.Config.ConfigBase"/>.</typeparam>
+            <param name="services">The service descriptors.</param>
+            <param name="options">The ES basic settings.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

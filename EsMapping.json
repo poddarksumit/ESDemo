@@ -1,0 +1,107 @@
+{
+  "brand-link-demo": {
+    "mappings": {
+      "properties": {
+        "email": {
+          "type": "text",
+          "analyzer": "standard"
+        },
+        "first_name": {
+          "type": "text",
+          "norms": false
+        },
+        "id": {
+          "type": "integer"
+        },
+        "landline": {
+          "type": "text"
+        },
+        "last_name": {
+          "type": "text"
+        },
+        "school": {
+          "type": "nested",
+          "properties": {
+            "postcode": {
+              "type": "text"
+            },
+            "schooladdress1": {
+              "type": "text"
+            },
+            "schoolid": {
+              "type": "integer"
+            },
+            "schoolname": {
+              "type": "text"
+            },
+            "suburb": {
+              "type": "text"
+            }
+          }
+        },
+        "status": {
+          "type": "text"
+        },
+        "suggest": {
+          "type": "completion",
+          "analyzer": "simple",
+          "preserve_separators": true,
+          "preserve_position_increments": true,
+          "max_input_length": 50
+        }
+      }
+    }
+  },
+  "customer": {
+    "mappings": {
+      "properties": {
+        "email": {
+          "type": "text",
+          "fields": {
+            "emailanalyzer": {
+              "type": "text",
+              "analyzer": "custom_email_analyzer"
+            }
+          }
+        },
+        "first_name": {
+          "type": "text",
+          "norms": false
+        },
+        "id": {
+          "type": "integer"
+        },
+        "landline": {
+          "type": "text",
+          "index": false
+        },
+        "last_name": {
+          "type": "text"
+        },
+        "school": {
+          "type": "nested",
+          "properties": {
+            "postcode": {
+              "type": "text"
+            },
+            "schooladdress1": {
+              "type": "text"
+            },
+            "schoolid": {
+              "type": "integer"
+            },
+            "schoolname": {
+              "type": "text"
+            },
+            "suburb": {
+              "type": "text"
+            }
+          }
+        },
+        "status": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}
